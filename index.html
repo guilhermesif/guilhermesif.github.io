@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
@@ -23,7 +23,9 @@
         animation: float 3s ease-in-out infinite;
       }
       .card-hover-effect {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
       }
       .card-hover-effect:hover {
         transform: translateY(-5px);
@@ -437,39 +439,12 @@
             </button>
           </div>
 
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Project 1 -->
-            <div
-              class="project-card bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg card-hover-effect"
-              data-category="fullstack"
-            >
-              <div
-                class="h-48 bg-gradient-to-r from-blue-400 to-purple-500 flex items-center justify-center"
-              >
-                <i class="fas fa-shop text-white text-6xl"></i>
-              </div>
-              <div class="p-6">
-                <h3 class="text-xl font-bold mb-2">E-commerce Platform</h3>
-                <p class="text-gray-600 dark:text-gray-300 mb-4">
-                  Plataforma de comércio eletrônico completa com carrinho de
-                  compras, pagamento e painel de administração.
-                </p>
-                <div class="flex flex-wrap gap-2 mb-4">
-                  <span
-                    class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full"
-                    >React</span
-                  >
-                  <span
-                    class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs rounded-full"
-                    >Node.js</span
-                  >
-                  <span
-                    class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 text-xs rounded-full"
-                    >MongoDB</span
-                  >
-                </div>
-              </div>
-            </div>
+          <!-- Project Cards -->
+          <div
+            id="projects"
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+          >
+            <!-- Project cards will be dynamically inserted here -->
           </div>
         </div>
       </section>
@@ -493,10 +468,10 @@
       </script>
       <script>
         var themeToggleDarkIcon = document.getElementById(
-          "theme-toggle-dark-icon"
+          "theme-toggle-dark-icon",
         );
         var themeToggleLightIcon = document.getElementById(
-          "theme-toggle-light-icon"
+          "theme-toggle-light-icon",
         );
 
         // Change the icons inside the button based on previous settings
@@ -543,6 +518,44 @@
         function toggleTheme() {
           document.documentElement.classList.toggle("light");
         }
+      </script>
+
+      <script type="module">
+        const projectsContainer = document.querySelector("#projects .grid");
+
+        fetch("https://api.github.com/users/guilhermesif/repos?per_page=100")
+          .then((res) => res.json())
+          .then((res) => {
+            for (const repo of res) {
+              const topics = repo.topics || [];
+              if (topics.length === 0) continue;
+
+              const projectCard = document.createElement("div");
+              projectCard.className =
+                "flex flex-col bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden project-card card-hover-effect fade-in";
+              projectCard.setAttribute("data-category", topics[0]);
+
+              projectCard.innerHTML = `
+                <div class="h-48 bg-gradient-to-r from-blue-400 to-purple-500 flex items-center justify-center">
+                  <i class="fas fa-code text-white text-6xl"></i>
+                </div>
+                <div class="p-6">
+                  <h3 class="text-xl font-bold mb-2">${repo.name}</h3>
+                  <p class="text-gray-600 dark:text-gray-300 mb-4">${repo.description || "Sem descrição"}</p>
+                  <div class="flex flex-wrap gap-2 mb-4">
+                    ${repo.topics
+                      .map(
+                        (topic) =>
+                          `<span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full">${topic}</span>`,
+                      )
+                      .join("")}
+                  </div>
+                </div>
+              `;
+
+              projectsContainer.appendChild(projectCard);
+            }
+          });
       </script>
     </main>
   </body>
