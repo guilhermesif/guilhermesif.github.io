@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serviços - Guilherme Ferreira</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    .card-hover-effect {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-hover-effect:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 min-h-screen">
+  <!-- Header/Navbar -->
+  <header class="sticky top-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm shadow-sm">
+    <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#"
+        class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Guilherme
+        Ferreira</a>
+      <div class="hidden md:flex space-x-8">
+        <a href="index.html#home" class="hover:text-blue-500 transition">Início</a>
+        <a href="index.html#skills" class="hover:text-blue-500 transition">Habilidades</a>
+        <a href="projects.html" class="hover:text-blue-500 transition">Projetos</a>
+        <a href="services.html#serviços" class="hover:text-blue-500 transition">Serviços</a>
+        <a href="contact.html" class="hover:text-blue-500 transition">Contato</a>
+        <!-- Botão Dark Mode -->
+        <button id="theme-toggle-web"
+          class="right-6 top-6 z-50 dark-toggle flex items-center justify-center w-12 h-6 rounded-full bg-gray-200 dark:bg-gray-700 focus:outline-none">
+          <i class="fas fa-moon hidden" id="theme-toggle-web-dark-icon"></i>
+          <i class="fas fa-sun hidden" id="theme-toggle-web-light-icon"></i>
+        </button>
+      </div>
+      <button id="mobileMenuButton" class="md:hidden text-2xl" aria-label="Toggle mobile menu"
+        onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
+    <!-- Mobile Menu -->
+    <nav id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-lg">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="index.html#home" class="block px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md">Início</a>
+        <a href="index.html#skills"
+          class="block px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md">Habilidades</a>
+        <a href="projects.html" class="block px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md">Projetos</a>
+        <a href="services.html#serviços"
+          class="block px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md">Serviços</a>
+        <a href="contact.html" class="block px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md">Contato</a>
+
+        <button id="theme-toggle-mobile"
+          class="mt-4 w-full flex items-center justify-center h-10 rounded-lg bg-gray-200 dark:bg-gray-700 focus:outline-none">
+          <i class="fas fa-moon hidden" id="theme-toggle-mobile-dark-icon"></i>
+          <i class="fas fa-sun hidden" id="theme-toggle-mobile-light-icon"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section id="serviços" class="bg-gray-100 dark:bg-gray-800 py-16">
+      <div class="max-w-2xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-12">Serviços</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+          <!-- Cards de Serviços -->
+          <article
+            class="flex flex-col items-center p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md card-hover-effect w-full cursor-pointer"
+            aria-label="Consultoria" onclick="openServiceModal('consultoria')">
+            <i class="fas fa-user-tie text-4xl text-blue-500 mb-2" aria-hidden="true"></i>
+            <span class="font-medium">Consultoria</span>
+          </article>
+          <article
+            class="flex flex-col items-center p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md card-hover-effect w-full cursor-pointer"
+            aria-label="Segurança da Informação" onclick="openServiceModal('seguranca')">
+            <i class="fas fa-shield-alt text-4xl text-red-600 mb-2" aria-hidden="true"></i>
+            <span class="font-medium">Segurança da Informação</span>
+          </article>
+          <article
+            class="flex flex-col items-center p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md card-hover-effect w-full cursor-pointer"
+            aria-label="Desenvolvimento" onclick="openServiceModal('desenvolvimento')">
+            <i class="fas fa-code text-4xl text-green-600 mb-2" aria-hidden="true"></i>
+            <span class="font-medium">Desenvolvimento</span>
+          </article>
+          <article
+            class="flex flex-col items-center p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md card-hover-effect w-full cursor-pointer"
+            aria-label="Análise de Dados" onclick="openServiceModal('analise')">
+            <i class="fas fa-chart-bar text-4xl text-cyan-600 mb-2" aria-hidden="true"></i>
+            <span class="font-medium">Análise de Dados</span>
+          </article>
+          <article
+            class="flex flex-col items-center p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md card-hover-effect w-full cursor-pointer"
+            aria-label="Redes" onclick="openServiceModal('redes')">
+            <i class="fas fa-network-wired text-4xl text-indigo-500 mb-2" aria-hidden="true"></i>
+            <span class="font-medium">Redes</span>
+          </article>
+          <article
+            class="flex flex-col items-center p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md card-hover-effect w-full cursor-pointer"
+            aria-label="Manutenção" onclick="openServiceModal('manutencao')">
+            <i class="fas fa-tools text-4xl text-gray-600 dark:text-gray-300 mb-2" aria-hidden="true"></i>
+            <span class="font-medium">Manutenção</span>
+          </article>
+        </div>
+        <!-- Botão Contato -->
+        <div class="mt-12 flex justify-center">
+          <a href="https://wa.me/35999936150" target="_blank" rel="noopener noreferrer"
+            class="border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 px-6 py-3 rounded-lg transition flex items-center justify-center space-x-2">
+            <i class="fab fa-whatsapp text-green-500"></i>
+            <span>Contate-me</span>
+          </a>
+        </div>
+      </div>
+      <!-- Modal de Serviço -->
+      <div id="service-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 hidden">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full p-8 relative">
+          <button onclick="closeServiceModal()" class="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-2xl"
+            aria-label="Fechar"><i class="fas fa-times"></i></button>
+          <h3 id="service-modal-title" class="text-2xl font-bold mb-4"></h3>
+          <p id="service-modal-desc" class="text-gray-700 dark:text-gray-200"></p>
+        </div>
+      </div>
+    </section>
+    <script>
+      tailwind.config = { darkMode: "class" };
+    </script>
+    <script>
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+    <script>
+      function toggleTheme() {
+        themeToggleWebDarkIcon.classList.toggle("hidden");
+        themeToggleWebLightIcon.classList.toggle("hidden");
+        themeToggleMobileDarkIcon.classList.toggle("hidden");
+        themeToggleMobileLightIcon.classList.toggle("hidden");
+        if (localStorage.getItem("color-theme")) {
+          if (localStorage.getItem("color-theme") === "light") {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("color-theme", "dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("color-theme", "light");
+          }
+        } else {
+          if (document.documentElement.classList.contains("dark")) {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("color-theme", "light");
+          } else {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("color-theme", "dark");
+          }
+        }
+      }
+      var themeToggleWebDarkIcon = document.getElementById("theme-toggle-web-dark-icon");
+      var themeToggleWebLightIcon = document.getElementById("theme-toggle-web-light-icon");
+      var themeToggleMobileDarkIcon = document.getElementById("theme-toggle-mobile-dark-icon");
+      var themeToggleMobileLightIcon = document.getElementById("theme-toggle-mobile-light-icon");
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        themeToggleWebLightIcon.classList.remove("hidden");
+        themeToggleMobileLightIcon.classList.remove("hidden");
+      } else {
+        themeToggleWebDarkIcon.classList.remove("hidden");
+        themeToggleMobileDarkIcon.classList.remove("hidden");
+      }
+      var themeToggleWebBtn = document.getElementById("theme-toggle-web");
+      var themeToggleMobileBtn = document.getElementById("theme-toggle-mobile");
+      themeToggleWebBtn.addEventListener("click", toggleTheme);
+      themeToggleMobileBtn.addEventListener("click", toggleTheme);
+    </script>
+    <script>
+      const serviceDescriptions = {
+        consultoria: {
+          title: 'Consultoria',
+          desc: 'Orientação estratégica e técnica para impulsionar projetos de TI, desde a concepção até a execução, com foco em resultados e inovação.'
+        },
+        desenvolvimento: {
+          title: 'Desenvolvimento',
+          desc: 'Criação de sistemas, sites e aplicações sob medida, utilizando as melhores práticas e tecnologias modernas para entregar soluções robustas e escaláveis.'
+        },
+        seguranca: {
+          title: 'Segurança da Informação',
+          desc: 'Implementação de políticas, ferramentas e treinamentos para proteger dados, sistemas e redes contra ameaças e vulnerabilidades.'
+        },
+        analise: {
+          title: 'Análise de Dados',
+          desc: 'Coleta, tratamento e visualização de dados para gerar insights valiosos e apoiar a tomada de decisão estratégica.'
+        },
+        redes: {
+          title: 'Redes',
+          desc: 'Planejamento, implantação e manutenção de redes de computadores, garantindo conectividade, desempenho e segurança.'
+        },
+        manutencao: {
+          title: 'Manutenção',
+          desc: 'Suporte técnico, atualização e correção de sistemas e equipamentos para garantir o funcionamento contínuo e eficiente.'
+        }
+      };
+      function openServiceModal(key) {
+        const modal = document.getElementById('service-modal');
+        const title = document.getElementById('service-modal-title');
+        const desc = document.getElementById('service-modal-desc');
+        title.textContent = serviceDescriptions[key].title;
+        desc.textContent = serviceDescriptions[key].desc;
+        modal.classList.remove('hidden');
+      }
+      function closeServiceModal() {
+        document.getElementById('service-modal').classList.add('hidden');
+      }
+    </script>
+  </main>
+</body>
+
+</html>
