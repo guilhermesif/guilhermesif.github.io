@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contato - Guilherme Ferreira</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    .card-hover-effect {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-hover-effect:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 min-h-screen">
+  <!-- Header/Navbar -->
+  <header class="sticky top-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm shadow-sm">
+    <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#"
+        class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Guilherme
+        Ferreira</a>
+      <div class="hidden md:flex space-x-8">
+        <a href="index.html#home" class="hover:text-blue-500 transition">Início</a>
+        <a href="index.html#skills" class="hover:text-blue-500 transition">Habilidades</a>
+        <a href="projects.html" class="hover:text-blue-500 transition">Projetos</a>
+        <a href="services.html#serviços" class="hover:text-blue-500 transition">Serviços</a>
+        <a href="contact.html" class="hover:text-blue-500 transition">Contato</a>
+        <button id="theme-toggle-web"
+          class="right-6 top-6 z-50 dark-toggle flex items-center justify-center w-12 h-6 rounded-full bg-gray-200 dark:bg-gray-700 focus:outline-none">
+          <i class="fas fa-moon hidden" id="theme-toggle-web-dark-icon"></i>
+          <i class="fas fa-sun hidden" id="theme-toggle-web-light-icon"></i>
+        </button>
+      </div>
+      <button id="mobileMenuButton" class="md:hidden text-2xl" aria-label="Toggle mobile menu"
+        onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
+        <i class="fas fa-bars"></i>
+      </button>
+    </nav>
+    <!-- Mobile Menu -->
+    <nav id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-lg">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="index.html#home" class="block px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md">Início</a>
+        <a href="index.html#skills"
+          class="block px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md">Habilidades</a>
+        <a href="projects.html" class="block px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md">Projetos</a>
+        <a href="services.html#serviços"
+          class="block px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md">Serviços</a>
+        <a href="contact.html" class="block px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md">Contato</a>
+        <button id="theme-toggle-mobile"
+          class="mt-4 w-full flex items-center justify-center h-10 rounded-lg bg-gray-200 dark:bg-gray-700 focus:outline-none">
+          <i class="fas fa-moon hidden" id="theme-toggle-mobile-dark-icon"></i>
+          <i class="fas fa-sun hidden" id="theme-toggle-mobile-light-icon"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section id="contato" class="bg-gray-100 dark:bg-gray-800 py-16 min-h-[60vh] flex items-center">
+      <div class="max-w-xl mx-auto px-6 w-full">
+        <h2 class="text-3xl font-bold text-center mb-8">Entre em Contato</h2>
+        <p class="text-center mb-8 text-gray-600 dark:text-gray-300">Preencha o formulário abaixo ou, se preferir, entre
+          em contato diretamente pelo WhatsApp.</p>
+        <form id="contact-form" class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-8 space-y-6" autocomplete="off">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://guilhermesif.github.io/contact.html?success=1">
+          <div>
+            <label for="nome" class="block mb-2 font-medium">Nome</label>
+            <input type="text" id="nome" name="nome" required
+              class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+          <div>
+            <label for="email" class="block mb-2 font-medium">E-mail</label>
+            <input type="email" id="email" name="email" required
+              class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+          <div>
+            <label for="assunto" class="block mb-2 font-medium">Assunto</label>
+            <input type="text" id="assunto" name="assunto" required
+              class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+          <div>
+            <label for="mensagem" class="block mb-2 font-medium">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" rows="4" required
+              class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+          </div>
+          <button type="submit"
+            class="w-full flex items-center justify-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition">
+            <i class="fas fa-paper-plane"></i>
+            <span>Enviar Mensagem</span>
+          </button>
+        </form>
+        <div class="mt-8 flex justify-center">
+          <a href="https://wa.me/35999936150" target="_blank" rel="noopener noreferrer"
+            class="border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 px-6 py-3 rounded-lg transition flex items-center justify-center space-x-2">
+            <i class="fab fa-whatsapp text-green-500"></i>
+            <span>Fale pelo WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <script>
+      tailwind.config = { darkMode: "class" };
+    </script>
+    <script>
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+    <script>
+      function toggleTheme() {
+        themeToggleWebDarkIcon.classList.toggle("hidden");
+        themeToggleWebLightIcon.classList.toggle("hidden");
+        themeToggleMobileDarkIcon.classList.toggle("hidden");
+        themeToggleMobileLightIcon.classList.toggle("hidden");
+        if (localStorage.getItem("color-theme")) {
+          if (localStorage.getItem("color-theme") === "light") {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("color-theme", "dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("color-theme", "light");
+          }
+        } else {
+          if (document.documentElement.classList.contains("dark")) {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("color-theme", "light");
+          } else {
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("color-theme", "dark");
+          }
+        }
+      }
+      var themeToggleWebDarkIcon = document.getElementById("theme-toggle-web-dark-icon");
+      var themeToggleWebLightIcon = document.getElementById("theme-toggle-web-light-icon");
+      var themeToggleMobileDarkIcon = document.getElementById("theme-toggle-mobile-dark-icon");
+      var themeToggleMobileLightIcon = document.getElementById("theme-toggle-mobile-light-icon");
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        themeToggleWebLightIcon.classList.remove("hidden");
+        themeToggleMobileLightIcon.classList.remove("hidden");
+      } else {
+        themeToggleWebDarkIcon.classList.remove("hidden");
+        themeToggleMobileDarkIcon.classList.remove("hidden");
+      }
+      var themeToggleWebBtn = document.getElementById("theme-toggle-web");
+      var themeToggleMobileBtn = document.getElementById("theme-toggle-mobile");
+      themeToggleWebBtn.addEventListener("click", toggleTheme);
+      themeToggleMobileBtn.addEventListener("click", toggleTheme);
+    </script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+      (function () {
+        emailjs.init('ikFJoDH1INyTfW9xI');
+      })();
+      document.getElementById('contact-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        emailjs.sendForm('service_987hkif', 'template_0nmi5ig', this)
+          .then(function () {
+            alert('Mensagem enviada com sucesso!');
+            document.getElementById('contact-form').reset();
+          }, function (error) {
+            alert('Erro ao enviar: ' + JSON.stringify(error));
+          });
+      });
+    </script>
+  </main>
+</body>
+
+</html>
