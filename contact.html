@@ -82,8 +82,16 @@
           </div>
           <div>
             <label for="assunto" class="block mb-2 font-medium">Assunto</label>
-            <input type="text" id="assunto" name="assunto" required
-              class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            <select id="assunto" name="assunto" required
+              class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <option value="" disabled selected>Selecione um serviço</option>
+              <option value="Consultoria">Consultoria</option>
+              <option value="Segurança da Informação">Segurança da Informação</option>
+              <option value="Desenvolvimento">Desenvolvimento</option>
+              <option value="Análise de Dados">Análise de Dados</option>
+              <option value="Redes">Redes</option>
+              <option value="Manutenção">Manutenção</option>
+            </select>
           </div>
           <div>
             <label for="mensagem" class="block mb-2 font-medium">Mensagem</label>
